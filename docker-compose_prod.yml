@@ -1,0 +1,21 @@
+version: '3'  
+  
+services:  
+  xampp:  
+    build:  
+      context: .  
+      dockerfile: Dockerfile  
+    image: xampp:v8.2.4.0  
+    ports:  
+      - 80:80  
+    volumes:  
+      - ./data:/data
+    networks:  
+      xampp:  
+        ipv4_address: 10.8.0.8 
+networks:  
+  xampp:  
+    driver: bridge  
+    ipam:  
+      config:  
+        - subnet: 10.8.0.0/24
